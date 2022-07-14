@@ -33,7 +33,7 @@ function startGame() {
 
   document.getElementById("newgamebutton").style.display = "none";
   document.getElementById("drawcardbutton").style.display = "block";
-  document.getElementById("ChangeAbutton").style.display = "block";
+  document.getElementById("ChangeAbutton").style.display = "none";
   document.getElementById("Exitgamebutton").style.display = "block";
 
   const i_firstCard = Math.floor(Math.random() * cards.length);
@@ -69,9 +69,14 @@ return
 
 
 function gamestatus() {
-  console.log("Your Cards: " + selectedCards + selectedCardssuits);
+
+  let combinecardsuits = selectedCards.map(
+    (element, index) => [element, selectedCardssuits[index]]
+  ).flat();
+  let withSpaces = combinecardsuits.join(' ');
+
   document.getElementById("yourcards").innerText =
-    "Your Cards: " + selectedCards + selectedCardssuits;
+    "Your Cards: " + withSpaces;
 
   let cardssum = sumCards(selectedCards);
   console.log("Sum: " + cardssum + " \n");
@@ -93,18 +98,15 @@ function gamestatus() {
     document.getElementById("drawcardbutton").style.display = "none";
     document.getElementById("ChangeAbutton").style.display = "none";
   }
-  /* if(cardssum < 21 && cardssum >= 13){
-            console.log("Blackjack!!! \n  -----  You win the game -----  \n  \n");
-            document.getElementById('gamestats').innerText
-            = "Blackjack!!! \n  -----  You win the game ----- ";
-            document.getElementById("drawcardbutton").style.display = "none";
-            document.getElementById("ChangeAbutton").style.display = "none";
-          }
-*/
   if (cardssum > 21) {
     console.log("Sorry, you lose.");
     document.getElementById("gamestats").innerText = "Sorry, you lose.";
     document.getElementById("drawcardbutton").style.display = "none";
+    if (Avalue == "1"){
+      document.getElementById("drawcardbutton").style.display = "none";
+    }
+
+
   }
 }
 
@@ -129,6 +131,8 @@ function sumCards(cards) {
 
   for (let i = 0; i < cards.length; i++) {
     if (cards[i] === "A") {
+
+      document.getElementById("ChangeAbutton").style.display = "block";
       if (Avalue == "1") {
         sum += 1;
       }
