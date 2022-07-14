@@ -13,6 +13,7 @@ function startGame(){
   //Math.random() - 0 - cards.length
   selectedCards=[];
   cards =["A","2","3","4","5","6","7","8","9","10","K","Q","J"];
+  document.getElementById('gamestats').innerText = " ";
 
   const i_firstCard=Math.floor(Math.random() * cards.length);
   const firstCard=cards[i_firstCard];
@@ -38,6 +39,29 @@ function gamestatus(){
     let cardssum  = sumCards(selectedCards)
     console.log("Sum: " + cardssum + " \n");
     document.getElementById('yoursum').innerText = "Sum: " + cardssum;
+
+
+    if ( cardssum == 21){
+        console.log("here one \n")
+        console.log("   Blackjack!!! \n  -----  You won the game with perfect Score  -----  \n  \n");
+
+        document.getElementById('gamestats').innerText
+        = "   Blackjack!!!   -----  You win the game with perfect Score  -----  ";
+        }
+          if(cardssum < 21 && cardssum >= 13){
+            console.log("Blackjack!!! \n  -----  You win the game -----  \n  \n");
+            document.getElementById('gamestats').innerText
+            = "Blackjack!!! \n  -----  You win the game ----- ";
+
+          }
+
+          if(cardssum > 21 ){
+            console.log("Sorry, you lose.");
+            document.getElementById('gamestats').innerText
+            = "Sorry, you lose.";
+          }
+
+
 }
 
 
@@ -64,12 +88,12 @@ function sumCards(cards){
 
 if (Avalue ==  "1"){
         sum += 1;
-            console.log("here one \n")
+
 }
 
 if (Avalue ==  "10"){
         sum += 10;
-            console.log("here ten \n")
+
 }
 
     } else if (cards[i] === "J" || cards[i] === "Q" || cards[i] === "K"){
@@ -83,5 +107,27 @@ if (Avalue ==  "10"){
 
 
 }
+
+
+
+
+function drawCard(){
+
+
+   let i_newCard=Math.floor(Math.random() * cards.length);
+    let newCard=cards[i_newCard];
+    selectedCards.push(newCard);
+    cards.splice(i_newCard, 1);
+
+
+    console.log(cards);
+  gamestatus();
+
+
+        }
+
+
+
+
 
 
