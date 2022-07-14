@@ -13,6 +13,7 @@ function startGame() {
   selectedCards = [];
   cards = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "K", "Q", "J"];
   document.getElementById("gamestats").innerText = " ";
+  document.getElementById("gamesprize").innerText = " ";
 
   document.getElementById("drawcardbutton").style.display = "block";
   document.getElementById("ChangeAbutton").style.display = "block";
