@@ -8,13 +8,12 @@
      </head>
      <header>
 
-
-
      </header>
-    <body class="body">
+    <body class="body" onload="loadpage()">
             <br>
+            <div id="confetti">
         <aside class="aside">
-            <div class= "im" href="/"><img src=image/blackjack21.png >
+            <div class= "im" href="/" id="blackjack21image"><img src=image/blackjack21.png >
                 <br>
                 <br>
                 <div class= "Infosholder" id="yourcards"></div>
@@ -23,22 +22,44 @@
                 <br>
                 <div class= "Infosholder" id="gamestats"></div>
                 <br>
-                <div class= "Infosholder" id="gamesprize"></div>
+                <div class= "gamesprize" id="gamesprize"></div>
                 <br>
             <div class= "Buttonsholder">
 
                 <br>
+
             <button class="button button1" onclick="startGame()" id="newgamebutton">New Game</button>
+
             <br>
-            <button class="button button2" onclick="drawCard()" id="drawcardbutton">Draw a Card</button>
-            <br>
+
             <button class="button button3" onclick="Avaluechange()" id="ChangeAbutton">Change A Value  1 / 10</button>
+            <button class="button button2" onclick="drawCard()" id="drawcardbutton">Draw a Card</button>
+
+            <br>
+            <button class="button button1" onclick="exitgame()" id="Exitgamebutton">Exit Game</button>
+            <p>.</p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
             <br>
             <br>
         </div>
+    <div>Codded by Juan Camilo Castaño Patiño</div>
+    <br>
+    <br>
+    <div>for SofkaU</div>
+    <br>
+    <br>
+    <br>
+    <br>
     </section>
     <footer>
     </footer>
+</div>
     </body>
 
 </html>
