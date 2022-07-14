@@ -7,7 +7,7 @@ let selectedCardssuits = [];
 let totalgamecounter = 0;
 let sum = 0;
 let answer = "";
-let Avalue = "10";
+let Avalue = "11";
 
 
 function loadpage(){
@@ -26,10 +26,7 @@ function startGame() {
   //Math.random() - 0 - cards.length
   let i_suit;
   let suit;
- // selectedCards = [];
- // cards = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "K", "Q", "J"];
- // document.getElementById("gamestats").innerText = " ";
- // document.getElementById("gamesprize").innerText = " ";
+
 
   document.getElementById("newgamebutton").style.display = "none";
   document.getElementById("drawcardbutton").style.display = "block";
@@ -112,11 +109,11 @@ function gamestatus() {
 
 function Avaluechange() {
   let auxa = Avalue;
-  if (auxa == "10") {
+  if (auxa == "11") {
     Avalue = "1";
   }
   if (auxa == "1") {
-    Avalue = "10";
+    Avalue = "11";
   }
   let cardssum = sumCards(selectedCards);
   if (cardssum < 21) {
@@ -137,8 +134,8 @@ function sumCards(cards) {
         sum += 1;
       }
 
-      if (Avalue == "10") {
-        sum += 10;
+      if (Avalue == "11") {
+        sum += 11;
       }
     } else if (cards[i] === "J" || cards[i] === "Q" || cards[i] === "K") {
       sum += 10;
